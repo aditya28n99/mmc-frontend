@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import JobpostListCard from '../../components/JobpostListCard';
-import {fetchJobPost} from '../../services/jobPostServices'
+import {fetchJobPostList} from '../../services/jobPostServices'
 
 const JobPostDashboard = () => {
 
@@ -13,7 +13,7 @@ const JobPostDashboard = () => {
     useEffect(() => {
       const getJobPostList = async () => {
         try {
-          const data = await fetchJobPost(employerId);
+          const data = await fetchJobPostList(employerId);
           setPosts(data);
           setIsLoading(false);
         } catch (error) {
