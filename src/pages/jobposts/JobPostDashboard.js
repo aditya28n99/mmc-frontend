@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import JobpostListCard from '../../components/JobpostListCard';
 import {fetchJobPost} from '../../services/jobPostServices'
@@ -36,7 +35,7 @@ const JobPostDashboard = () => {
             <div className="my-4">
                 <div className="flex justify-between items-center">
                     <h2>Your Recent Posts</h2>
-                    <Link to="/job-posts" className="btn btn-link">View All</Link>
+                    <Link to="/job-posts-list" className="btn btn-link">View All</Link>
                 </div>
                 {isLoading ? (
                     <p>Loading...</p>
@@ -44,7 +43,7 @@ const JobPostDashboard = () => {
                     <p>No posts available</p>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {posts.map(post => (
+                        {posts.slice(0,5).map(post => (
                             <JobpostListCard key={post.id} post={post} />
                         ))}
                     </div>
