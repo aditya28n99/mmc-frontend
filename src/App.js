@@ -13,6 +13,7 @@ import JobPostDashboard from './pages/jobposts/JobPostDashboard';
 import ApplicationsList from './pages/applications/ApplicationsList';
 import AllNotifications from './pages/notifications/AllNotifications';
 import Help from './pages/Help';
+import JobPostListPage from './pages/jobposts/JobPostListPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/post-dashboard" element={<JobPostDashboard/>} />
         <Route path="/all-applicaitons" element={<ApplicationsList/>} />
         <Route path="/all-notifications" element={<AllNotifications/>} />
+        <Route path="/job-posts-list" element={<JobPostListPage/>} />
         <Route path="/help" element={<Help/>} />
       </Routes>
     </Router>
