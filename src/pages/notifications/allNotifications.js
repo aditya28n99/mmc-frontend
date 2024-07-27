@@ -1,9 +1,9 @@
 import React from 'react'
 
-function allNotifications() {
+function AllNotifications() {
   return (
     <div>allNotifications</div>
   )
 }
 
-export default allNotifications
+export default AllNotifications;
