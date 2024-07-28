@@ -28,7 +28,7 @@ const JobPostDashboard = () => {
     }, [employerId]);
 
     const handleMakeAPost = () =>{
-        Navigate('/');
+        Navigate(`/create-job-post/${employerId}`);
     }
     return (
         <div className="p-4">

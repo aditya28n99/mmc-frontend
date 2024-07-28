@@ -16,6 +16,7 @@ import Help from './pages/Help';
 import JobPostListPage from './pages/jobposts/JobPostListPage';
 import JobPostDetail from './pages/jobposts/JobPostDetail';
 import { EmployerProvider } from './context/EmployerContext';
+import JobPostForm from './pages/jobposts/JobPostForm';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/post-dashboard" element={<JobPostDashboard/>} />
         <Route path="/all-applicaitons" element={<ApplicationsList/>} />
         <Route path="/all-notifications" element={<AllNotifications/>} />
+        <Route path="/create-job-post/:employerId" element={<JobPostForm/>} />
         <Route path="/job-posts-list" element={<JobPostListPage/>} />
         <Route path="/job-post/:employerId/:jobId" element={<JobPostDetail/>} />
         <Route path="/help" element={<Help/>} />
