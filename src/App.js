@@ -15,11 +15,13 @@ import AllNotifications from './pages/notifications/AllNotifications';
 import Help from './pages/Help';
 import JobPostListPage from './pages/jobposts/JobPostListPage';
 import JobPostDetail from './pages/jobposts/JobPostDetail';
+import { EmployerProvider } from './context/EmployerContext';
 
 function App() {
   return (
     <Router>
       <Header />
+      <EmployerProvider>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/create-profile" element={<EmployerProfileForm/>} />
@@ -31,6 +33,7 @@ function App() {
         <Route path="/job-post/:employerId/:jobId" element={<JobPostDetail/>} />
         <Route path="/help" element={<Help/>} />
       </Routes>
+      </EmployerProvider>
     </Router>
   );
 }

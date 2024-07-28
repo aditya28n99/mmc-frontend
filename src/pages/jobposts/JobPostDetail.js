@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchJobPost } from '../../services/jobPostServices';
+import { EmployerContext } from '../../context/EmployerContext';
 
 const JobPostDetail = () => {
     const { jobId } = useParams();
     const [jobPost, setJobPost] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-
-    const employerId = '068979ad-8d63-41a0-b95c-3d9fcfd1a432';
+    const {employerId} = useContext(EmployerContext);
 
     useEffect(() => {
 
@@ -22,10 +22,7 @@ const JobPostDetail = () => {
                 setIsLoading(false);
             }
         };
-        getJobPostDetails();
-        
-        // Replace with your API endpoint
-       
+        getJobPostDetails();       
     }, [employerId, jobId]);
 
     if (isLoading) {

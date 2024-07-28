@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { fetchEmployerProfile } from '../services/employerService';
+import { EmployerContext } from '../context/EmployerContext';
 
 const EmployerProfilePage = ({ match }) => {
   const [employerProfile, setEmployerProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const employerId = '068979ad-8d63-41a0-b95c-3d9fcfd1a432';
+  const { employerId } = useContext(EmployerContext);
 
   useEffect(() => {
     const getEmployerProfile = async () => {

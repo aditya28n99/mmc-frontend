@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom"
-
 import JobpostListCard from '../../components/JobpostListCard';
 import {fetchJobPostList} from '../../services/jobPostServices';
+import { EmployerContext } from '../../context/EmployerContext';
 
-function JobPostListPage() {
+const JobPostListPage =() =>  {
 
-    const employerId = '068979ad-8d63-41a0-b95c-3d9fcfd1a432';
+    const { employerId } = useContext(EmployerContext);
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
