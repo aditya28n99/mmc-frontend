@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom"
 import JobpostListCard from '../../components/JobpostListCard';
 import {fetchJobPostList} from '../../services/jobPostServices';
 import { EmployerContext } from '../../context/EmployerContext';
@@ -10,8 +9,6 @@ const JobPostListPage =() =>  {
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
-    const navigate = useNavigate();
 
     useEffect(() => {
       const getJobPostList = async () => {
@@ -28,10 +25,6 @@ const JobPostListPage =() =>  {
       getJobPostList();
     }, [employerId]);
 
-    const handlePostClick = (jobId) => {
-        navigate(`/job-post/${employerId}/${jobId}`);
-    };
-
     return (
         <div className="my-4">
             {isLoading ? (
@@ -41,9 +34,7 @@ const JobPostListPage =() =>  {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {posts.map(post => (
-                        <div  key={post.jobId} onClick={() => handlePostClick(post.jobId)}>
-                        <JobpostListCard key={post.id} post={post} />
-                        </div>
+                        <JobpostListCard key={post.id} post={post} employerId={employerId} />
                     ))}
                 </div>
             )}
