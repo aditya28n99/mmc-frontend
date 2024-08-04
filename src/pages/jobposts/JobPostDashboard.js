@@ -51,7 +51,7 @@ const JobPostDashboard = () => {
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {posts.slice(0, 5).map(post => (
-                            <JobpostListCard key={post.jobId} post={post} />
+                            <JobpostListCard key={post.jobId} post={post} employerId={employerId} />
                         ))}
                     </div>
                 )}
