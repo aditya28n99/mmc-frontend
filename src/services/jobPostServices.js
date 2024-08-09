@@ -21,11 +21,24 @@ export const fetchJobPost = async (employerId, jobID) => {
 };
 
 export const createJobPost = async (employerId, jobPostData) => {
+  console.log("JP data :", jobPostData);
   try {
     const response = await axios.post(`${BASE_URL}/jobPosting/createJobPost/${employerId}`, jobPostData);
+    console.log("The response we got is the: ", response.data);
     return response.data;
 
   } catch (error) {
+    console.log("This is error we get: ", error);
+    throw error;
+  }
+};
+
+export const updateJobPost = async (employerId, jobId, jobPostData) => {
+  try {
+    const response = await axios.put(`${BASE_URL}/jobPosting/updateJobPost/${employerId}/${jobId}`, jobPostData);
+    return response.data;
+  } catch (error) {
+    console.log("This is error we get while updating the jobpost: ", error);
     throw error;
   }
 };

@@ -20,6 +20,7 @@ import JobPostForm from './pages/jobposts/JobPostForm';
 import Hero from './pages/Hero';
 import SignIn from './components/logins/SignIn';
 import Header from './components/Header';
+import JobPostUpdateForm from './pages/jobposts/JobPostUpdateForm';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/all-applications" element={<ApplicationsList/>} />
           <Route path="/all-notifications" element={<AllNotifications/>} />
           <Route path="/create-job-post/:employerId" element={<JobPostForm/>} />
+          <Route path="/update-job-post/:employerId/:jobId" element={<JobPostUpdateForm/>} />
           <Route path="/job-posts-list" element={<JobPostListPage/>} />
           <Route path="/job-post/:employerId/:jobId" element={<JobPostDetail/>} />
           <Route path="/help" element={<Help/>} />

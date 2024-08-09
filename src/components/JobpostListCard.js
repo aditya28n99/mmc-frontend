@@ -9,7 +9,7 @@ const statuses = {
 }
 
 const JobpostListCard = ({ post, employerId }) => { // Added employerId prop
-    const { jobTitle, position, applyBefore, numberOfApplicants, jobLocation, salary, jobId } = post; // Destructure jobId
+    const { jobTitle, applyBefore, numberOfApplicants, jobLocation, salary, jobId } = post; // Destructure jobId
 
     const calculateStatus = (applyBefore) => {
         const applyDate = new Date(applyBefore);
@@ -44,7 +44,7 @@ const JobpostListCard = ({ post, employerId }) => { // Added employerId prop
                         </MenuItem>
                         <MenuItem>
                             {/* Updated link to edit post */}
-                            <Link to={`/job-post/${employerId}/${jobId}/edit`} className="block px-3 py-1 text-sm leading-6 text-gray-900 data-[focus]:bg-gray-50">
+                            <Link to={`/update-job-post/${employerId}/${jobId}`} className="block px-3 py-1 text-sm leading-6 text-gray-900 data-[focus]:bg-gray-50">
                                 Edit<span className="sr-only">, {jobTitle}</span>
                             </Link>
                         </MenuItem>
