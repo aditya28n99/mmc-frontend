@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://13.201.62.223:8000';
+const BASE_URL = 'http://45.64.105.171:8000';
 
 export const fetchJobPostList = async (employerId) => {
   try {

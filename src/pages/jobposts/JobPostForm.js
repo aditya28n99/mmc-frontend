@@ -17,7 +17,8 @@ const JobPostForm = () => {
     skills: [],
     workType: '',
     benefits: [],
-    education: ''
+    education: '',
+    noOfPositions: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -54,6 +55,7 @@ const JobPostForm = () => {
     if (!formData.workType.trim()) newErrors.workType = 'Work Type is required';
     if (!formData.benefits.length) newErrors.benefits = 'At least one benefit is required';
     if (!formData.education.trim()) newErrors.education = 'Education is required';
+    if (!formData.noOfPositions.trim()) newErrors.noOfPositions = 'Enter Number of Positions';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -80,7 +82,8 @@ const JobPostForm = () => {
         skills: [],
         workType: '',
         benefits: [],
-        education: ''
+        education: '',
+        noOfPositions: ''
       });
     } catch (error) {
       console.error('Error creating job post:', error);
@@ -247,6 +250,18 @@ const JobPostForm = () => {
             className={`block w-full px-3 py-2 border rounded-md shadow-sm ${errors.education ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
           />
           {errors.education && <p className="text-red-500 text-sm">{errors.education}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">No of Positions</label>
+          <input
+            type="text"
+            name="noOfPositions"
+            value={formData.noOfPositions}
+            onChange={handleChange}
+            className={`block w-full px-3 py-2 border rounded-md shadow-sm ${errors.noOfPositions ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+          />
+          {errors.noOfPositions && <p className="text-red-500 text-sm">{errors.noOfPositions}</p>}
         </div>
 
         <button
