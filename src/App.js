@@ -21,6 +21,9 @@ import Hero from './pages/Hero';
 import SignIn from './components/logins/SignIn';
 import Header from './components/Header';
 import JobPostUpdateForm from './pages/jobposts/JobPostUpdateForm';
+import Employer from './pages/auth/Employer/employer';
+import Jobseeker from './pages/auth/Jobseeker/jobseeker';
+import Callback from './pages/auth/Callback';
 
 function App() {
   return (
@@ -29,6 +32,10 @@ function App() {
         <ConditionalHeader />
         <Routes>
           <Route exact path="/" element={<Hero />} />
+          <Route exact path="/employer" element={<Employer/>} />
+          <Route exact path="/jobseeker" element={<Jobseeker/>} />
+          <Route path="/auth/callback" element={<Callback />} />
+
           <Route exact path="/sign-in" element={<SignIn />} />
           <Route path="/home" element={<Home />} />
           <Route path="/create-profile" element={<EmployerProfileForm/>} />
@@ -49,11 +56,9 @@ function App() {
 
 function ConditionalHeader() {
   const location = useLocation();
-
-  // Check if the current path is not '/' or '/sign-in'
-  const shouldShowHeader = location.pathname !== '/' && location.pathname !== '/sign-in';
+  const hideOnRoutes = ["/", "/sign-in", "/auth/callback"];
+  const shouldShowHeader = !hideOnRoutes.includes(location.pathname);
 
   return shouldShowHeader ? <Header /> : null;
 }
-
 export default App;
